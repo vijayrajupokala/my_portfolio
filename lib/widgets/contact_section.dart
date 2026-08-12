@@ -94,7 +94,7 @@ icon: Icons.work_outline,
 title: 'LinkedIn',
 value: 'Connect with me',onTap: () => _openUrl(
   'https://www.linkedin.com/in/vijay-raju-pokala/',
-),
+),  
 ),
 _ContactCard(
 icon: Icons.code,

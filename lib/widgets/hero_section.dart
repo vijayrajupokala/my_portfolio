@@ -12,14 +12,14 @@ required this.onContactMe,
 });
 
 Future<void> _openResume() async {
-  final uri = Uri.parse('vijay_resume.pdf');
+  final resumeUrl = Uri.base.resolve(
+    'assets/resume/vijay_resume.pdf',
+  );
 
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(
-      uri,
-      webOnlyWindowName: '_blank',
-    );
-  }
+  await launchUrl(
+    resumeUrl,
+    webOnlyWindowName: '_blank',
+  );
 }
 
 @override
