@@ -28,7 +28,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web --release --base-href /vijay-portfolio/
+        run: flutter build web --release --base-href /my_portfolio/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
