@@ -12,12 +12,16 @@ required this.onContactMe,
 });
 
 Future<void> _openResume() async {
-  final resumeUrl = Uri.base.resolve(
-    'assets/resume/vijay_resume.pdf',
+  final basePath = Uri.base.path.endsWith('/')
+      ? Uri.base.path
+      : '${Uri.base.path}/';
+
+  final uri = Uri.parse(
+    '${Uri.base.origin}$basePath' 'assets/resume/vijay_resume.pdf',
   );
 
   await launchUrl(
-    resumeUrl,
+    uri,
     webOnlyWindowName: '_blank',
   );
 }
