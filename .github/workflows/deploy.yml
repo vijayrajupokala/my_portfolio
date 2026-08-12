@@ -1,4 +1,4 @@
-name: Deploy Flutter Portfolio
+name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
@@ -17,34 +17,34 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.44.7'
           channel: stable
 
-      - name: Get dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web --release --base-href /my_portfolio/
+        run: flutter build web --release
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: build/web
 
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
 
     steps:
       - name: Deploy to GitHub Pages
