@@ -17,7 +17,7 @@ Future<void> _openResume() async {
       : '${Uri.base.path}/';
 
   final uri = Uri.parse(
-    '${Uri.base.origin}$basePath' 'assets/resume/vijay_resume.pdf',
+    '${Uri.base.origin}$basePath' 'assets/assets/resume/vijay_resume.pdf',
   );
 
   await launchUrl(
